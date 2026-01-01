@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="EN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Security — SkyVault Systems</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/nav.js" defer></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <a href="index.html" class="brand-link">
+                <img src="assets/media/logo.svg" alt="SkyVault logo" class="brand-logo" />
+                <span>SkyVault Systems</span>
+            </a>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <button
+                class="nav-toggle"
+                type="button"
+                aria-controls="main-nav"
+                aria-expanded="false"
+                aria-label="Open menu"
+        >
+      <span class="bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+        </button>
+
+        <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="index.html#comparison">Pricing</a></li>
+                <li><a href="transparency.html">Transparency</a></li>
+                <li><a href="about-us.html">About</a></li>
+            </ul>
+        </nav>
+
+        <div class="contact-links">
+            <a href="contact-us.html" class="contact-btn">Contact Us</a>
+            <a href="vault.html" class="contact-btn">Open Vault</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="assets/media/logo.svg" alt="" class="hero-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">Security Model</h1>
+        <p class="hero-sub">
+            Designed to minimize trust, reduce exposure, and eliminate unnecessary access.
+        </p>
+    </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section">
+    <div class="container">
+        <h2>Security Philosophy</h2>
+        <p>
+            SkyVault is built on the assumption that infrastructure will eventually be probed,
+            monitored, or compromised. Our goal is not to prevent access at all costs, but to
+            ensure that access does not translate into usable data.
+        </p>
+        <p>
+            We design systems so that even a full server breach does not grant decryption
+            capability or access to plaintext files.
+        </p>
+    </div>
+</section>
+
+<!-- THREAT MODEL -->
+<section class="section">
+    <div class="container">
+        <h2>Threat Model</h2>
+        <ul class="resources">
+            <li>Malicious third parties gaining access to storage infrastructure</li>
+            <li>Compromised or malicious service operators</li>
+            <li>Legal or administrative requests for stored data</li>
+            <li>Network-level interception of stored files</li>
+        </ul>
+        <p>
+            SkyVault is not designed to protect against compromised client devices,
+            keylogging malware, or user-side operational security failures.
+        </p>
+    </div>
+</section>
+
+<!-- CRYPTOGRAPHY -->
+<section class="section">
+    <div class="container">
+        <h2>Cryptography</h2>
+
+        <div class="features-grid">
+
+            <article class="feature">
+                <h3>Client-Side Encryption</h3>
+                <p>
+                    Encryption is performed locally on the client. Plaintext data is never
+                    transmitted or processed by SkyVault servers.
+                </p>
+            </article>
+
+            <article class="feature">
+                <h3>Key Ownership</h3>
+                <p>
+                    Private keys are generated and retained on user devices. SkyVault does not
+                    store, escrow, or recover private keys.
+                </p>
+            </article>
+
+            <article class="feature">
+                <h3>Post-Quantum Readiness</h3>
+                <p>
+                    Hybrid encryption schemes may be used to combine classical and
+                    post-quantum algorithms, reducing long-term cryptographic risk.
+                </p>
+            </article>
+
+            <article class="feature">
+                <h3>Authenticated Encryption</h3>
+                <p>
+                    Stored data is protected using authenticated encryption to prevent
+                    tampering and undetected modification.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- SERVER SIDE -->
+<section class="section">
+    <div class="container">
+        <h2>Server-Side Limitations</h2>
+        <ul class="resources">
+            <li>No access to private keys</li>
+            <li>No access to plaintext files</li>
+            <li>No ability to decrypt user data</li>
+            <li>No ability to reset encryption state</li>
+        </ul>
+        <p>
+            Servers are treated as untrusted storage endpoints. Security controls assume
+            that server compromise is possible and must not result in data disclosure.
+        </p>
+    </div>
+</section>
+
+<!-- USER RESPONSIBILITY -->
+<section class="section">
+    <div class="container">
+        <h2>User Responsibility</h2>
+        <p>
+            Because SkyVault does not retain private keys, users are solely responsible for
+            securing their credentials, seed phrases, and devices. Lost keys cannot be
+            recovered by SkyVault.
+        </p>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+    <div class="container">
+        <h2>Further Reading</h2>
+        <p>
+            For details on data handling, logging practices, and jurisdictional considerations,
+            see our transparency documentation.
+        </p>
+        <div class="hero-cta">
+            <a href="how-it-works.html" class="btn">How It Works</a>
+            <a href="transparency.html" class="btn secondary">Transparency</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-left">
+            <a href="index.html" class="brand brand-link">
+                <img src="assets/media/logo.svg" alt="SkyVault logo" class="brand-logo">
+                <span>SkyVault Systems</span>
+            </a>
+            <p class="copyright">
+                © 2025 SkyVault Systems. All rights reserved.
+            </p>
+            <p class="footer-note">
+                Encryption and file handling are performed client-side. No plaintext files are transmitted or stored.
+            </p>
+        </div>
+
+        <div class="footer-right">
+            <nav class="footer-nav">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="security.html">Security</a>
+                <a href="contact-us.html">Contact</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
