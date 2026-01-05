@@ -153,32 +153,37 @@ encryptBtn.addEventListener("click", async (e) => {
         return;
     }
 
-    const userKey = userKeyInput.value.trim();
-    if (!userKey) {
-        alert("Please enter an encryption key.");
-        return;
-    }
+    let userKey = userKeyInput.value.trim();
+    const noKeyMode = !userKey;   // true when user left key empty
 
     encryptBtn.style.pointerEvents = "none";
     encryptBtn.style.opacity = "0.8";
 
     for (let i = 0; i < pendingFiles.length; i++) {
         const file = pendingFiles[i];
-        setPendingRowStatus(i, "Encrypting…");
+        setPendingRowStatus(i, noKeyMode ? "Saving…" : "Encrypting…");
 
-        await new Promise((r) => setTimeout(r, 250));
+        await new Promise(r => setTimeout(r, 250));
 
         try {
-            const encryptedBlob = await encryptWithUserKey(file, userKey);
+            let blob;
+
+            if (noKeyMode) {
+                // Save file as-is (no encryption)
+                blob = file;
+            } else {
+                // Encrypt normally
+                blob = await encryptWithUserKey(file, userKey);
+            }
 
             vaultFiles.unshift({
                 originalName: file.name,
-                size: encryptedBlob.size,
-                encryptedBlob,
-                status: "Stored",
+                size: blob.size,
+                encryptedBlob: blob,
+                status: noKeyMode ? "Stored (raw)" : "Stored",
             });
 
-            setPendingRowStatus(i, "Stored");
+            setPendingRowStatus(i, noKeyMode ? "Stored (raw)" : "Stored");
         } catch (err) {
             console.error(err);
             setPendingRowStatus(i, "Error");
