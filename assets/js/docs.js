@@ -12,5 +12,5 @@ function init() {
 
 function onResourceClick(e) {
     e.preventDefault();
-    alert("Some error occurred");
+    alert("Some error occurred. Try again later");
 }
